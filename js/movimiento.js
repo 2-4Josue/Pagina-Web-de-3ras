@@ -1,3 +1,48 @@
+// Se usa en varias animaciones del archivo (título, viento), por eso
+// se declara aquí arriba de todo.
+const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+// ===================== TÍTULO ESCRITO LETRA POR LETRA =====================
+function typeHeroTitle() {
+  const lines = [
+    { el: document.querySelector('.hero__title-line[data-line="0"]'), text: "La piel guarda" },
+    { el: document.querySelector('.hero__title-line[data-line="1"]'), text: "lo que el silencio calla" },
+  ];
+
+  if (!lines[0].el || !lines[1].el) return;
+
+  // Si el usuario prefiere menos movimiento, mostramos el texto completo de una vez
+  if (prefersReducedMotion) {
+    lines.forEach((line) => { line.el.textContent = line.text; });
+    return;
+  }
+
+  let lineIndex = 0;
+  let charIndex = 0;
+
+  function typeChar() {
+    if (lineIndex >= lines.length) return;
+
+    const current = lines[lineIndex];
+    current.el.classList.add("is-typing");
+
+    if (charIndex <= current.text.length) {
+      current.el.textContent = current.text.slice(0, charIndex);
+      charIndex++;
+      window.setTimeout(typeChar, 45 + Math.random() * 40);
+    } else {
+      current.el.classList.remove("is-typing");
+      lineIndex++;
+      charIndex = 0;
+      window.setTimeout(typeChar, 280); // pequeña pausa entre líneas
+    }
+  }
+
+  window.setTimeout(typeChar, 350); // pequeña pausa antes de empezar
+}
+
+typeHeroTitle();
+
 // ===================== AÑO EN FOOTER =====================
 document.getElementById("year").textContent = new Date().getFullYear();
 
@@ -7,7 +52,6 @@ document.getElementById("year").textContent = new Date().getFullYear();
 // se generan).
 
 const windLayer = document.getElementById("windLayer");
-const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 function spawnWindLine() {
   if (prefersReducedMotion) return;

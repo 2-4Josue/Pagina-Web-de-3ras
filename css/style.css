@@ -27,6 +27,22 @@ body{
 
 img{ max-width: 100%; display: block; }
 
+/* ===================== BARRA DE SCROLL PERSONALIZADA ===================== */
+html{
+  scrollbar-width: thin; /* Firefox */
+  scrollbar-color: var(--accent) var(--bg);
+}
+::-webkit-scrollbar{ width: 10px; }
+::-webkit-scrollbar-track{ background: var(--bg); }
+::-webkit-scrollbar-thumb{
+  background: linear-gradient(var(--accent), var(--accent-2));
+  border-radius: 6px;
+  border: 2px solid var(--bg);
+}
+::-webkit-scrollbar-thumb:hover{
+  background: linear-gradient(var(--accent-2), var(--accent));
+}
+
 a{ color: inherit; text-decoration: none; }
 
 .eyebrow{
@@ -139,6 +155,17 @@ h1, h2{
   line-height: 1.15;
   margin-bottom: 0.6em;
 }
+.hero__title-line.is-typing::after{
+  content: "";
+  display: inline-block;
+  width: 2px;
+  height: 0.85em;
+  background: var(--accent-2);
+  margin-left: 6px;
+  vertical-align: -0.05em;
+  animation: caretBlink 0.9s steps(1) infinite;
+}
+@keyframes caretBlink{ 50%{ opacity: 0; } }
 .hero__tagline{
   font-family: var(--font-display);
   letter-spacing: 0.32em;
@@ -161,6 +188,23 @@ h1, h2{
 @keyframes scrollPulse{
   0%, 100%{ opacity: 0.3; }
   50%{ opacity: 1; }
+}
+
+/* ===================== SEPARADORES ORNAMENTALES ===================== */
+.divider{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.6rem 0;
+  color: var(--accent-2);
+  opacity: 0.6;
+  position: relative;
+  z-index: 6;
+}
+.divider svg{
+  width: 200px;
+  max-width: 60%;
+  height: 18px;
 }
 
 /* ===================== ABOUT ===================== */
@@ -209,6 +253,7 @@ h1, h2{
   margin: 0;
   border: 1px solid var(--line);
   overflow: hidden;
+  position: relative;
 }
 .carousel__item img{
   height: 320px;
@@ -218,6 +263,39 @@ h1, h2{
   transition: filter 0.4s ease, transform 0.4s ease;
 }
 .carousel__item:hover img{ filter: grayscale(0); transform: scale(1.04); }
+
+/* Grieta de cristal: cada línea "crece" desde el borde hacia el centro
+   usando pathLength=1 en el SVG, así el dashoffset siempre va de 1 a 0
+   sin importar el largo real de cada trazo. */
+.crack-svg{
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+.crack-line{
+  fill: none;
+  stroke: #ffffff;
+  stroke-width: 1.3;
+  stroke-linecap: round;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  opacity: 0;
+  transition: stroke-dashoffset 0.45s ease-out, opacity 0.15s ease-out;
+}
+.carousel__item:hover .crack-line{
+  stroke-dashoffset: 0;
+  opacity: 0.75;
+}
+.crack-line:nth-child(1){ transition-delay: 0s; }
+.crack-line:nth-child(2){ transition-delay: 0.04s; }
+.crack-line:nth-child(3){ transition-delay: 0.08s; }
+.crack-line:nth-child(4){ transition-delay: 0.03s; }
+.crack-line:nth-child(5){ transition-delay: 0.1s; }
+.crack-line:nth-child(6){ transition-delay: 0.06s; }
+.crack-line:nth-child(7){ transition-delay: 0.12s; }
+.crack-line:nth-child(8){ transition-delay: 0.02s; }
 .carousel__btn{
   background: transparent;
   border: 1px solid var(--line);

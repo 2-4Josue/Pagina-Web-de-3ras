@@ -55,7 +55,10 @@
   <div class="wind-layer" id="windLayer" aria-hidden="true"></div>
   <div class="hero__content">
     <p class="hero__eyebrow">Estudio de tatuaje</p>
-    <h1 class="hero__title">La piel guarda<br>lo que el silencio calla</h1>
+    <h1 class="hero__title" aria-label="La piel guarda lo que el silencio calla">
+      <span class="hero__title-line" data-line="0" aria-hidden="true"></span><br aria-hidden="true">
+      <span class="hero__title-line" data-line="1" aria-hidden="true"></span>
+    </h1>
     <p class="hero__tagline">Sombra Negra Tattoo Studio</p>
     <a href="#contacto" class="btn btn--outline">Reserva tu cita</a>
   </div>
@@ -66,6 +69,10 @@
 
 <!-- Todo lo de aquí en adelante (fuera del hero) lleva el efecto de niebla -->
 <div class="fog-zone">
+
+<div class="divider" aria-hidden="true">
+  <svg viewBox="0 0 200 20"><line x1="0" y1="10" x2="80" y2="10" stroke="currentColor" stroke-width="1"/><path d="M100 2 L108 10 L100 18 L92 10 Z" fill="currentColor"/><circle cx="100" cy="10" r="2.2" fill="var(--bg)"/><line x1="120" y1="10" x2="200" y2="10" stroke="currentColor" stroke-width="1"/></svg>
+</div>
 
 <!-- ===================== SOBRE NOSOTROS ===================== -->
 <section class="about" id="nosotros">
@@ -91,6 +98,10 @@
   </div>
 </section>
 
+<div class="divider" aria-hidden="true">
+  <svg viewBox="0 0 200 20"><line x1="0" y1="10" x2="80" y2="10" stroke="currentColor" stroke-width="1"/><path d="M100 2 L108 10 L100 18 L92 10 Z" fill="currentColor"/><circle cx="100" cy="10" r="2.2" fill="var(--bg-alt)"/><line x1="120" y1="10" x2="200" y2="10" stroke="currentColor" stroke-width="1"/></svg>
+</div>
+
 <!-- ===================== GALERÍA / CARRUSEL ===================== -->
 <section class="gallery" id="galeria">
   <p class="eyebrow eyebrow--center">Galería</p>
@@ -100,17 +111,21 @@
     <button class="carousel__btn carousel__btn--prev" aria-label="Anterior">&#10094;</button>
 
     <div class="carousel__track" id="carouselTrack">
-      <figure class="carousel__item"><img src="img/tatto1.jpeg" alt="Tatuaje 1"></figure>
-      <figure class="carousel__item"><img src="img/tatto2.jpeg" alt="Tatuaje 2"></figure>
-      <figure class="carousel__item"><img src="img/tatto3.jpeg" alt="Tatuaje 3"></figure>
-      <figure class="carousel__item"><img src="img/tatto4.jpeg" alt="Tatuaje 4"></figure>
-      <figure class="carousel__item"><img src="img/tatto5.jpeg" alt="Tatuaje 5"></figure>
-      <figure class="carousel__item"><img src="img/tatto6.jpeg" alt="Tatuaje 6"></figure>
+      <figure class="carousel__item"><img src="img/tatto1.jpeg" alt="Tatuaje 1"><svg class="crack-svg" viewBox="0 0 260 320" preserveAspectRatio="none" aria-hidden="true"><path class="crack-line" pathLength="1" d="M130 0 L130 140"/><path class="crack-line" pathLength="1" d="M260 60 L150 130"/><path class="crack-line" pathLength="1" d="M260 180 L160 170"/><path class="crack-line" pathLength="1" d="M220 320 L170 200"/><path class="crack-line" pathLength="1" d="M110 320 L120 200"/><path class="crack-line" pathLength="1" d="M0 250 L90 190"/><path class="crack-line" pathLength="1" d="M0 100 L80 150"/><path class="crack-line" pathLength="1" d="M40 0 L110 80"/></svg></figure>
+      <figure class="carousel__item"><img src="img/tatto2.jpeg" alt="Tatuaje 2"><svg class="crack-svg" viewBox="0 0 260 320" preserveAspectRatio="none" aria-hidden="true"><path class="crack-line" pathLength="1" d="M130 0 L130 140"/><path class="crack-line" pathLength="1" d="M260 60 L150 130"/><path class="crack-line" pathLength="1" d="M260 180 L160 170"/><path class="crack-line" pathLength="1" d="M220 320 L170 200"/><path class="crack-line" pathLength="1" d="M110 320 L120 200"/><path class="crack-line" pathLength="1" d="M0 250 L90 190"/><path class="crack-line" pathLength="1" d="M0 100 L80 150"/><path class="crack-line" pathLength="1" d="M40 0 L110 80"/></svg></figure>
+      <figure class="carousel__item"><img src="img/tatto3.jpeg" alt="Tatuaje 3"><svg class="crack-svg" viewBox="0 0 260 320" preserveAspectRatio="none" aria-hidden="true"><path class="crack-line" pathLength="1" d="M130 0 L130 140"/><path class="crack-line" pathLength="1" d="M260 60 L150 130"/><path class="crack-line" pathLength="1" d="M260 180 L160 170"/><path class="crack-line" pathLength="1" d="M220 320 L170 200"/><path class="crack-line" pathLength="1" d="M110 320 L120 200"/><path class="crack-line" pathLength="1" d="M0 250 L90 190"/><path class="crack-line" pathLength="1" d="M0 100 L80 150"/><path class="crack-line" pathLength="1" d="M40 0 L110 80"/></svg></figure>
+      <figure class="carousel__item"><img src="img/tatto4.jpeg" alt="Tatuaje 4"><svg class="crack-svg" viewBox="0 0 260 320" preserveAspectRatio="none" aria-hidden="true"><path class="crack-line" pathLength="1" d="M130 0 L130 140"/><path class="crack-line" pathLength="1" d="M260 60 L150 130"/><path class="crack-line" pathLength="1" d="M260 180 L160 170"/><path class="crack-line" pathLength="1" d="M220 320 L170 200"/><path class="crack-line" pathLength="1" d="M110 320 L120 200"/><path class="crack-line" pathLength="1" d="M0 250 L90 190"/><path class="crack-line" pathLength="1" d="M0 100 L80 150"/><path class="crack-line" pathLength="1" d="M40 0 L110 80"/></svg></figure>
+      <figure class="carousel__item"><img src="img/tatto5.jpeg" alt="Tatuaje 5"><svg class="crack-svg" viewBox="0 0 260 320" preserveAspectRatio="none" aria-hidden="true"><path class="crack-line" pathLength="1" d="M130 0 L130 140"/><path class="crack-line" pathLength="1" d="M260 60 L150 130"/><path class="crack-line" pathLength="1" d="M260 180 L160 170"/><path class="crack-line" pathLength="1" d="M220 320 L170 200"/><path class="crack-line" pathLength="1" d="M110 320 L120 200"/><path class="crack-line" pathLength="1" d="M0 250 L90 190"/><path class="crack-line" pathLength="1" d="M0 100 L80 150"/><path class="crack-line" pathLength="1" d="M40 0 L110 80"/></svg></figure>
+      <figure class="carousel__item"><img src="img/tatto6.jpeg" alt="Tatuaje 6"><svg class="crack-svg" viewBox="0 0 260 320" preserveAspectRatio="none" aria-hidden="true"><path class="crack-line" pathLength="1" d="M130 0 L130 140"/><path class="crack-line" pathLength="1" d="M260 60 L150 130"/><path class="crack-line" pathLength="1" d="M260 180 L160 170"/><path class="crack-line" pathLength="1" d="M220 320 L170 200"/><path class="crack-line" pathLength="1" d="M110 320 L120 200"/><path class="crack-line" pathLength="1" d="M0 250 L90 190"/><path class="crack-line" pathLength="1" d="M0 100 L80 150"/><path class="crack-line" pathLength="1" d="M40 0 L110 80"/></svg></figure>
     </div>
 
     <button class="carousel__btn carousel__btn--next" aria-label="Siguiente">&#10095;</button>
   </div>
 </section>
+
+<div class="divider" aria-hidden="true">
+  <svg viewBox="0 0 200 20"><line x1="0" y1="10" x2="80" y2="10" stroke="currentColor" stroke-width="1"/><path d="M100 2 L108 10 L100 18 L92 10 Z" fill="currentColor"/><circle cx="100" cy="10" r="2.2" fill="var(--bg)"/><line x1="120" y1="10" x2="200" y2="10" stroke="currentColor" stroke-width="1"/></svg>
+</div>
 
 <!-- ===================== REDES SOCIALES ===================== -->
 <section class="social" id="social">
@@ -127,6 +142,10 @@
     </a>
   </div>
 </section>
+
+<div class="divider" aria-hidden="true">
+  <svg viewBox="0 0 200 20"><line x1="0" y1="10" x2="80" y2="10" stroke="currentColor" stroke-width="1"/><path d="M100 2 L108 10 L100 18 L92 10 Z" fill="currentColor"/><circle cx="100" cy="10" r="2.2" fill="var(--bg-alt)"/><line x1="120" y1="10" x2="200" y2="10" stroke="currentColor" stroke-width="1"/></svg>
+</div>
 
 <!-- ===================== CONTACTO ===================== -->
 <section class="contact" id="contacto">
@@ -163,6 +182,10 @@
     </form>
   </div>
 </section>
+
+<div class="divider" aria-hidden="true">
+  <svg viewBox="0 0 200 20"><line x1="0" y1="10" x2="80" y2="10" stroke="currentColor" stroke-width="1"/><path d="M100 2 L108 10 L100 18 L92 10 Z" fill="currentColor"/><circle cx="100" cy="10" r="2.2" fill="var(--bg)"/><line x1="120" y1="10" x2="200" y2="10" stroke="currentColor" stroke-width="1"/></svg>
+</div>
 
 <footer class="footer">
   <p>&copy; <span id="year"></span> Sombra Negra Tattoo Studio</p>
