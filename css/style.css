@@ -8,7 +8,7 @@
   --accent: #7a1f2b;
   --accent-2: #a3823f;
   --line: #2b2622;
-  --font-display: "Cinzel", serif;
+  --font-display: "Pirata One", serif;
   --font-body: "Cormorant Garamond", serif;
 }
 
@@ -224,6 +224,40 @@ h1, h2{
 .about__text h2{ font-size: 2.1rem; }
 .about__text p{ color: var(--ink-dim); max-width: 46ch; }
 
+/* ===================== CONTADOR ===================== */
+.stats{
+  padding: 4.5rem 1.5rem;
+  background: var(--bg);
+  text-align: center;
+}
+.stats__inner{
+  max-width: 640px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 3.5rem 5rem;
+}
+.stat{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.stat__number{
+  font-family: var(--font-display);
+  font-size: clamp(2.6rem, 7vw, 4rem);
+  line-height: 1;
+  color: var(--accent-2);
+}
+.stat__label{
+  margin: 0.7rem 0 0;
+  font-family: var(--font-display);
+  letter-spacing: 0.12em;
+  font-size: 0.85rem;
+  color: var(--ink-dim);
+  text-transform: uppercase;
+}
+
 /* ===================== GALLERY / CAROUSEL ===================== */
 .gallery{ padding: 6rem 1.5rem; background: var(--bg-alt); text-align: center; }
 .gallery__title{ font-size: 2.1rem; margin-bottom: 3rem; }
@@ -264,38 +298,30 @@ h1, h2{
 }
 .carousel__item:hover img{ filter: grayscale(0); transform: scale(1.04); }
 
-/* Grieta de cristal: cada línea "crece" desde el borde hacia el centro
-   usando pathLength=1 en el SVG, así el dashoffset siempre va de 1 a 0
-   sin importar el largo real de cada trazo. */
-.crack-svg{
+/* Marco de nubes: al pasar el mouse, un marco de "nubes" tipo cómic
+   (círculos superpuestos en rojo sangre y blanco hueso) entra desde
+   afuera hacia adentro de la foto, como un marco que se cierra. */
+.cloud-frame{
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
+  z-index: 2;
   pointer-events: none;
-}
-.crack-line{
-  fill: none;
-  stroke: #ffffff;
-  stroke-width: 1.3;
-  stroke-linecap: round;
-  stroke-dasharray: 1;
-  stroke-dashoffset: 1;
   opacity: 0;
-  transition: stroke-dashoffset 0.45s ease-out, opacity 0.15s ease-out;
+  transform: scale(1.22);
+  transform-origin: center;
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+  /* difuminado suave en vez de contorno duro: cada bulto ya trae su
+     propio degradado (rojo al centro -> blanco -> transparente) desde
+     el SVG, el blur solo redondea los bordes para que se vea natural */
+  filter: blur(4px);
+  mix-blend-mode: screen;
 }
-.carousel__item:hover .crack-line{
-  stroke-dashoffset: 0;
-  opacity: 0.75;
+.carousel__item:hover .cloud-frame{
+  opacity: 1;
+  transform: scale(1);
 }
-.crack-line:nth-child(1){ transition-delay: 0s; }
-.crack-line:nth-child(2){ transition-delay: 0.04s; }
-.crack-line:nth-child(3){ transition-delay: 0.08s; }
-.crack-line:nth-child(4){ transition-delay: 0.03s; }
-.crack-line:nth-child(5){ transition-delay: 0.1s; }
-.crack-line:nth-child(6){ transition-delay: 0.06s; }
-.crack-line:nth-child(7){ transition-delay: 0.12s; }
-.crack-line:nth-child(8){ transition-delay: 0.02s; }
 .carousel__btn{
   background: transparent;
   border: 1px solid var(--line);

@@ -43,6 +43,48 @@ function typeHeroTitle() {
 
 typeHeroTitle();
 
+// ===================== CONTADOR ANIMADO =====================
+function animateCounters() {
+  const counters = document.querySelectorAll(".stat__number");
+  if (!counters.length) return;
+
+  function runCount(el) {
+    const target = parseInt(el.dataset.target, 10) || 0;
+
+    if (prefersReducedMotion) {
+      el.textContent = target;
+      return;
+    }
+
+    const duration = 1400;
+    const start = performance.now();
+
+    function tick(now) {
+      const progress = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3); // easeOutCubic
+      el.textContent = Math.round(eased * target);
+      if (progress < 1) requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  }
+
+  const observer = new IntersectionObserver(
+    (entries, obs) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          runCount(entry.target);
+          obs.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.5 }
+  );
+
+  counters.forEach((counter) => observer.observe(counter));
+}
+
+animateCounters();
+
 // ===================== AÑO EN FOOTER =====================
 document.getElementById("year").textContent = new Date().getFullYear();
 
